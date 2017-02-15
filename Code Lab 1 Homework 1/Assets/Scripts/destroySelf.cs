@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class destroySelf : MonoBehaviour {
     public GameObject bullet;
+    public float destroyDelay;
 
 	// Use this for initialization
 	void Start () {
 
-        Invoke("Destroy", 1);
+        Invoke("Destroy", destroyDelay);
 	}
 	
 	// Update is called once per frame
@@ -23,6 +24,7 @@ public class destroySelf : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collider)
     {
-        Invoke("Destory", 0.5f);
+        Invoke("Destory", destroyDelay);
+        Destroy();
     }
 }
